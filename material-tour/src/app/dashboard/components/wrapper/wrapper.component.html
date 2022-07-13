@@ -1,0 +1,36 @@
+<mat-sidenav-container autosize>
+    <div class="content">
+        <mat-toolbar>
+            Hello Toolbar
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+    <mat-sidenav #sideNav mode="side" opened="true">
+        <mat-nav-list>
+            <!-- https://fonts.google.com/icons -->
+            <mat-list-item>
+                <mat-icon mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded" 
+                [class.rotated]="isExpanded"
+                >chevron_right</mat-icon>
+            </mat-list-item>
+            
+            <mat-list-item [routerLink]="'dashboard'">
+                <mat-icon mat-list-icon >home</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item"> Home </span>
+            </mat-list-item>
+
+            <mat-list-item [routerLink]="'info'">
+                <mat-icon mat-list-icon>info</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item"> Info </span>
+            </mat-list-item>
+            
+            <mat-list-item [routerLink]="'students'">
+                <mat-icon mat-list-icon>face</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item"> Students </span>
+            </mat-list-item>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+</mat-sidenav-container>
+
